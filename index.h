@@ -11,11 +11,11 @@ const char WEB_PAGE[] = R"=====(
     </head>
     <body>
       <form action="/get">
-        SSID: <input type="text" name="SSID">
+        SSID: <input type="text" name="ssid">
         <input type="submit" value="Submit">
       </form><br />
       <form action="/get">
-        Password: <input type="text" name="Password">
+        Password: <input type="text" name="password">
         <input type="submit" value="Submit">
       </form>
     </body>
