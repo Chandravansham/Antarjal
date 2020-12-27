@@ -10,9 +10,6 @@
 
 #include "index.h"
 
-
-
-
 AsyncWebServer server(80);
 
 // REPLACE WITH YOUR NETWORK CREDENTIALS
@@ -29,8 +26,6 @@ void notFound(AsyncWebServerRequest *request) {
 void setup() {
   Serial.begin(115200);
   WiFi.softAP(ssid, password);
-//  Serial.println(WiFi.softAP(ssid, password) ? "[+]Access Point Ready" : "[!]Failed");
-  // Send web page with input fields to client
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", WEB_PAGE);
   });
@@ -42,7 +37,6 @@ void setup() {
      // GET input1 value on <ESP_IP>/get?input1=<inputMessage>
      if (request->hasParam(PARAM_INPUT_1)) {
        inputMessage = request->getParam(PARAM_INPUT_1)->value();
-//       Serial.print(inputMessage);
        inputParam = PARAM_INPUT_1;
           for (int i = 0; i < inputMessage.length(); ++i)
             {
@@ -54,7 +48,6 @@ void setup() {
      // GET input2 value on <ESP_IP>/get?input2=<inputMessage>
      else if (request->hasParam(PARAM_INPUT_2)) {
        inputMessage = request->getParam(PARAM_INPUT_2)->value();
-//       Serial.print(inputMessage);
        inputParam = PARAM_INPUT_2;
      }
      else {
